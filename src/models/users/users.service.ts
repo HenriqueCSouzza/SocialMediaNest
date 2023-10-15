@@ -1,16 +1,30 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { FindManyUserArgs, FindUniqueUserArgs } from './dto/find.args';
 import { PrismaService } from 'src/common/prisma/prisma.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
+import { Prisma } from '@prisma/client';
+import formatPrismaErrorMessage from 'src/utils/formatPrimaError';
 
 @Injectable()
 export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
-  create(createUserInput: CreateUserInput) {
-    return this.prisma.user.create({
-      data: createUserInput,
-    });
+  async create(createUserInput: CreateUserInput) {
+    try {
+      return await this.prisma.user.create({
+        data: createUserInput,
+      });
+    } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code) {
+          throw new BadRequestException(
+            formatPrismaErrorMessage(error)?.message,
+          );
+        }
+      }
+
+      throw error;
+    }
   }
 
   findAll(args: FindManyUserArgs) {
