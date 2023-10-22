@@ -11,7 +11,7 @@ import { Comment } from './entity/comment.entity';
 import { FindManyCommentArgs, FindUniqueCommentArgs } from './dtos/find.args';
 import { CreateCommentInput } from './dtos/create-comment.input';
 import { UpdateCommentInput } from './dtos/update-comment.input';
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from '../../common/prisma/prisma.service';
 import { User } from '../users/entities/user.entity';
 import { Post } from '../posts/entity/post.entity';
 

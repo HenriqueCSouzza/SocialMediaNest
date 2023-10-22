@@ -1,10 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { FindManyUserArgs, FindUniqueUserArgs } from './dto/find.args';
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from '../../common/prisma/prisma.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { Prisma } from '@prisma/client';
-import formatPrismaErrorMessage from 'src/utils/formatPrimaError';
+import formatPrismaErrorMessage from '../../utils/formatPrimaError';
 
 @Injectable()
 export class UsersService {

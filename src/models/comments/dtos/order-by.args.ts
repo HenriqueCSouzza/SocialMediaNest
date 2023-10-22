@@ -1,8 +1,8 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { RestrictProperties } from 'src/common/dtos/common.input';
-import { PostOrderByWithRelationInput } from 'src/models/posts/dtos/order-by.args';
-import { UserOrderByWithRelationInput } from 'src/models/users/dto/orderBy.args';
+import { RestrictProperties } from '../../../common/dtos/common.input';
+import { PostOrderByWithRelationInput } from '../../../models/posts/dtos/order-by.args';
+import { UserOrderByWithRelationInput } from '../../../models/users/dto/orderBy.args';
 
 @InputType()
 export class CommentOrderByWithRelationInput

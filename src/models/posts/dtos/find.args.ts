@@ -1,12 +1,12 @@
-import { ArgsType, Field, registerEnumType } from '@nestjs/graphql'
-import { Prisma } from '@prisma/client'
-import { PostOrderByWithRelationInput } from './order-by.args'
-import { PostWhereInput, PostWhereUniqueInput } from './where.args'
-import { RestrictProperties } from 'src/common/dtos/common.input'
+import { ArgsType, Field, registerEnumType } from '@nestjs/graphql';
+import { Prisma } from '@prisma/client';
+import { PostOrderByWithRelationInput } from './order-by.args';
+import { PostWhereInput, PostWhereUniqueInput } from './where.args';
+import { RestrictProperties } from '../../../common/dtos/common.input';
 
 registerEnumType(Prisma.PostScalarFieldEnum, {
   name: 'PostScalarFieldEnum',
-})
+});
 
 @ArgsType()
 export class FindManyPostArgs
@@ -17,21 +17,21 @@ export class FindManyPostArgs
     >
 {
   @Field(() => [PostWhereInput], { nullable: true })
-  where: PostWhereInput
+  where: PostWhereInput;
   @Field(() => [PostOrderByWithRelationInput], { nullable: true })
-  orderBy: PostOrderByWithRelationInput[]
+  orderBy: PostOrderByWithRelationInput[];
   @Field(() => PostWhereUniqueInput, { nullable: true })
-  cursor: PostWhereUniqueInput
+  cursor: PostWhereUniqueInput;
   @Field(() => Number, { nullable: true })
-  take: number
+  take: number;
   @Field(() => Number, { nullable: true })
-  skip: number
+  skip: number;
   @Field(() => [Prisma.PostScalarFieldEnum], { nullable: true })
-  distinct: Prisma.PostScalarFieldEnum[]
+  distinct: Prisma.PostScalarFieldEnum[];
 }
 
 @ArgsType()
 export class FindUniquePostArgs {
   @Field({ nullable: true })
-  where: PostWhereUniqueInput
+  where: PostWhereUniqueInput;
 }

@@ -11,7 +11,7 @@ import { User } from './entities/user.entity';
 import { FindManyUserArgs, FindUniqueUserArgs } from './dto/find.args';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from '../../common/prisma/prisma.service';
 import { Post } from '../posts/entity/post.entity';
 import { Comment } from '../comments/entity/comment.entity';
 

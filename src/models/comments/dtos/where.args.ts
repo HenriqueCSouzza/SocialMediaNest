@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { RestrictProperties } from 'src/common/dtos/common.input';
+import { RestrictProperties } from '../../../common/dtos/common.input';
 import { PostWhereInput } from 'src/models/posts/dtos/where.args';
 import { UserWhereInput } from 'src/models/users/dto/where.args';
 

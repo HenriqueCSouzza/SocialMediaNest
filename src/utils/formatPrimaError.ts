@@ -1,5 +1,5 @@
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-import prismaClientErrorMessages from 'src/const/prismaClientErrorMessages';
+import prismaClientErrorMessages from '../const/prismaClientErrorMessages';
 
 function formatPrismaErrorMessage(error: PrismaClientKnownRequestError) {
   const { name, meta, code, clientVersion } = error;
@@ -14,8 +14,6 @@ function formatPrismaErrorMessage(error: PrismaClientKnownRequestError) {
       clientVersion,
     };
   }
-
-  // Substitui os espaços reservados pelos valores dos campos
 
   return { message: errorMessage, name, meta, code, clientVersion };
 }

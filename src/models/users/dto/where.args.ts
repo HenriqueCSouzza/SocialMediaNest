@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { RestrictProperties } from 'src/common/dtos/common.input';
+import { RestrictProperties } from '../../../common/dtos/common.input';
 import { CommentListRelationFilter } from 'src/models/comments/dtos/where.args';
 import { PostListRelationFilter } from 'src/models/posts/dtos/where.args';
 

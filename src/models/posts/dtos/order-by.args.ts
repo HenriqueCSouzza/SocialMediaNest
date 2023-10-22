@@ -1,12 +1,12 @@
-import { Field, InputType } from '@nestjs/graphql'
-import { Prisma } from '@prisma/client'
-import { RestrictProperties } from 'src/common/dtos/common.input'
-import { UserOrderByWithRelationInput } from 'src/models/users/dto/orderBy.args'
+import { Field, InputType } from '@nestjs/graphql';
+import { Prisma } from '@prisma/client';
+import { RestrictProperties } from '../../../common/dtos/common.input';
+import { UserOrderByWithRelationInput } from '../../../models/users/dto/orderBy.args';
 
 @InputType()
 export class PostOrderByRelationAggregateInput {
   @Field(() => Prisma.SortOrder, { nullable: true })
-  _count: Prisma.SortOrder
+  _count: Prisma.SortOrder;
 }
 
 @InputType()
@@ -18,17 +18,17 @@ export class PostOrderByWithRelationInput
     >
 {
   @Field(() => Prisma.SortOrder, { nullable: true })
-  id: Prisma.SortOrder
+  id: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
-  title: Prisma.SortOrder
+  title: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
-  body: Prisma.SortOrder
+  body: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
-  published: Prisma.SortOrder
+  published: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
-  authorId: Prisma.SortOrder
+  authorId: Prisma.SortOrder;
   @Field(() => UserOrderByWithRelationInput, { nullable: true })
-  author: UserOrderByWithRelationInput
+  author: UserOrderByWithRelationInput;
   @Field(() => PostOrderByRelationAggregateInput, { nullable: true })
-  comments: PostOrderByRelationAggregateInput
+  comments: PostOrderByRelationAggregateInput;
 }
