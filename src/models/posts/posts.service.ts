@@ -8,9 +8,14 @@ import { UpdatePostInput } from './dtos/update-post.input';
 export class PostsService {
   constructor(private readonly prisma: PrismaService) {}
   create(createPostInput: CreatePostInput) {
-    return this.prisma.post.create({
-      data: createPostInput,
-    });
+    return this.prisma.post
+      .create({
+        data: createPostInput,
+      })
+      .then((res) => {
+        console.log(res);
+        return res;
+      });
   }
 
   findAll(args: FindManyPostArgs) {

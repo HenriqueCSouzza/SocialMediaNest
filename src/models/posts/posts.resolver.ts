@@ -24,7 +24,10 @@ export class PostsResolver {
 
   @Mutation(() => Post)
   createPost(@Args('createPostInput') args: CreatePostInput) {
-    return this.postsService.create(args);
+    return this.postsService.create(args).then((res) => {
+      console.log(res);
+      return res;
+    });
   }
 
   @Query(() => [Post], { name: 'posts' })
