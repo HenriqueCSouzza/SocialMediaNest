@@ -85,14 +85,7 @@ describe('CommentsResolver', () => {
       postId: 1,
       userId: 1,
     };
-    try {
-      await expect(resolver.createComment(createCommentInput));
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error);
-      expect(error.message).toBe(
-        'O campo text deve conter pelo menos 1 caractere.',
-      );
-    }
+    await expect(resolver.createComment(createCommentInput)).rejects.toThrow();
   });
 
   it('should not update a nonexistent comment', async () => {

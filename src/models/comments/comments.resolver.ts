@@ -23,43 +23,37 @@ export class CommentsResolver {
   ) {}
 
   @Mutation(() => Comment)
-  createComment(@Args('createCommentInput') args: CreateCommentInput) {
-    return this.commentsService
-      .create(args)
-      .then((res) => {
-        return res;
-      })
-      .then((res) => res)
-      .catch((error) => error);
+  async createComment(@Args('createCommentInput') args: CreateCommentInput) {
+    return await this.commentsService.create(args);
   }
 
   @Query(() => [Comment], { name: 'comments' })
-  findAll(@Args() args: FindManyCommentArgs) {
-    return this.commentsService.findAll(args);
+  async findAll(@Args() args: FindManyCommentArgs) {
+    return await this.commentsService.findAll(args);
   }
 
   @Query(() => Comment, { name: 'comment' })
-  findOne(@Args() args: FindUniqueCommentArgs) {
-    return this.commentsService.findOne(args);
+  async findOne(@Args() args: FindUniqueCommentArgs) {
+    return await this.commentsService.findOne(args);
   }
 
   @Mutation(() => Comment)
-  updateComment(@Args('updateCommentInput') args: UpdateCommentInput) {
-    return this.commentsService.update(args);
+  async updateComment(@Args('updateCommentInput') args: UpdateCommentInput) {
+    return await this.commentsService.update(args);
   }
 
   @Mutation(() => Comment)
-  removeComment(@Args() args: FindUniqueCommentArgs) {
-    return this.commentsService.remove(args);
+  async removeComment(@Args() args: FindUniqueCommentArgs) {
+    return await this.commentsService.remove(args);
   }
 
   @ResolveField(() => User)
-  user(@Parent() parent: Comment) {
-    return this.prisma.user.findUnique({ where: { id: parent.userId } });
+  async user(@Parent() parent: Comment) {
+    return await this.prisma.user.findUnique({ where: { id: parent.userId } });
   }
 
   @ResolveField(() => Post)
-  post(@Parent() parent: Comment) {
-    return this.prisma.post.findUnique({ where: { id: parent.postId } });
+  async post(@Parent() parent: Comment) {
+    return await this.prisma.post.findUnique({ where: { id: parent.postId } });
   }
 }

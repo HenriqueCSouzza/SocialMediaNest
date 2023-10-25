@@ -23,39 +23,39 @@ export class PostsResolver {
   ) {}
 
   @Mutation(() => Post)
-  createPost(@Args('createPostInput') args: CreatePostInput) {
-    return this.postsService.create(args).then((res) => {
-      return res;
-    });
+  async createPost(@Args('createPostInput') args: CreatePostInput) {
+    return await this.postsService.create(args);
   }
 
   @Query(() => [Post], { name: 'posts' })
-  findAll(@Args() args: FindManyPostArgs) {
-    return this.postsService.findAll(args);
+  async findAll(@Args() args: FindManyPostArgs) {
+    return await this.postsService.findAll(args);
   }
 
   @Query(() => Post, { name: 'post' })
-  findOne(@Args() args: FindUniquePostArgs) {
-    return this.postsService.findOne(args);
+  async findOne(@Args() args: FindUniquePostArgs) {
+    return await this.postsService.findOne(args);
   }
 
   @Mutation(() => Post)
-  updatePost(@Args('updatePostInput') args: UpdatePostInput) {
-    return this.postsService.update(args);
+  async updatePost(@Args('updatePostInput') args: UpdatePostInput) {
+    return await this.postsService.update(args);
   }
 
   @Mutation(() => Post)
-  removePost(@Args() args: FindUniquePostArgs) {
-    return this.postsService.remove(args);
+  async removePost(@Args() args: FindUniquePostArgs) {
+    return await this.postsService.remove(args);
   }
 
   @ResolveField(() => User)
-  author(@Parent() parent: Post) {
-    return this.prisma.user.findUnique({ where: { id: parent.authorId } });
+  async author(@Parent() parent: Post) {
+    return await this.prisma.user.findUnique({
+      where: { id: parent.authorId },
+    });
   }
 
   @ResolveField(() => [Comment])
-  comments(@Parent() parent: Post) {
-    return this.prisma.comment.findMany({ where: { postId: parent.id } });
+  async comments(@Parent() parent: Post) {
+    return await this.prisma.comment.findMany({ where: { postId: parent.id } });
   }
 }
