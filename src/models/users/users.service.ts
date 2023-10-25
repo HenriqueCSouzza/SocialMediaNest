@@ -27,23 +27,23 @@ export class UsersService {
     }
   }
 
-  findAll(args: FindManyUserArgs) {
-    return this.prisma.user.findMany(args);
+  async findAll(args: FindManyUserArgs) {
+    return await this.prisma.user.findMany(args);
   }
 
-  findOne(args: FindUniqueUserArgs) {
-    return this.prisma.user.findUnique(args);
+  async findOne(args: FindUniqueUserArgs) {
+    return await this.prisma.user.findUnique(args);
   }
 
-  update(updateUserInput: UpdateUserInput) {
+  async update(updateUserInput: UpdateUserInput) {
     const { id, ...data } = updateUserInput;
-    return this.prisma.user.update({
+    return await this.prisma.user.update({
       where: { id },
       data: data,
     });
   }
 
-  remove(args: FindUniqueUserArgs) {
-    return this.prisma.user.delete(args);
+  async remove(args: FindUniqueUserArgs) {
+    return await this.prisma.user.delete(args);
   }
 }

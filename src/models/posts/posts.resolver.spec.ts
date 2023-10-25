@@ -41,4 +41,29 @@ describe('PostsResolver', () => {
 
     expect(result).toEqual(mockResponse);
   });
+
+  it('should update a post', async () => {
+    const updatePostInput = {
+      id: 1,
+      title: 'Updated Title test',
+      text: 'Updated Post',
+      body: 'Updated Body test',
+    };
+    const mockUpdatedPostResponse = {
+      id: 1,
+      title: 'Updated Title test',
+      text: 'Updated Post',
+      body: 'Updated Body test',
+      published: true,
+      authorId: 1,
+    };
+
+    jest
+      .spyOn(service, 'update')
+      .mockImplementation(async () => mockUpdatedPostResponse);
+
+    const result = await resolver.updatePost(updatePostInput);
+
+    expect(result).toEqual(mockUpdatedPostResponse);
+  });
 });

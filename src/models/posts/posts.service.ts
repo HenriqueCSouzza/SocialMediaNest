@@ -7,33 +7,29 @@ import { UpdatePostInput } from './dtos/update-post.input';
 @Injectable()
 export class PostsService {
   constructor(private readonly prisma: PrismaService) {}
-  create(createPostInput: CreatePostInput) {
-    return this.prisma.post
-      .create({
-        data: createPostInput,
-      })
-      .then((res) => {
-        return res;
-      });
+  async create(createPostInput: CreatePostInput) {
+    return await this.prisma.post.create({
+      data: createPostInput,
+    });
   }
 
-  findAll(args: FindManyPostArgs) {
-    return this.prisma.post.findMany(args);
+  async findAll(args: FindManyPostArgs) {
+    return await this.prisma.post.findMany(args);
   }
 
-  findOne(args: FindUniquePostArgs) {
-    return this.prisma.post.findUnique(args);
+  async findOne(args: FindUniquePostArgs) {
+    return await this.prisma.post.findUnique(args);
   }
 
-  update(updatePostInput: UpdatePostInput) {
+  async update(updatePostInput: UpdatePostInput) {
     const { id, ...data } = updatePostInput;
-    return this.prisma.post.update({
+    return await this.prisma.post.update({
       where: { id },
       data: data,
     });
   }
 
-  remove(args: FindUniquePostArgs) {
-    return this.prisma.post.delete(args);
+  async remove(args: FindUniquePostArgs) {
+    return await this.prisma.post.delete(args);
   }
 }
