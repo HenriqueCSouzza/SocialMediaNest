@@ -25,7 +25,6 @@ export class PostsResolver {
   @Mutation(() => Post)
   createPost(@Args('createPostInput') args: CreatePostInput) {
     return this.postsService.create(args).then((res) => {
-      console.log(res);
       return res;
     });
   }
