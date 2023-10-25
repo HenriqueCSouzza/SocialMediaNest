@@ -13,7 +13,6 @@ export class PostsService {
         data: createPostInput,
       })
       .then((res) => {
-        console.log(res);
         return res;
       });
   }

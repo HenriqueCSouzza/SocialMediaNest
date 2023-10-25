@@ -3,7 +3,7 @@ import { PostsResolver } from './posts.resolver';
 import { PostsService } from './posts.service';
 import { PrismaService } from '../../common/prisma/prisma.service';
 
-describe('UsersResolver', () => {
+describe('PostsResolver', () => {
   let resolver: PostsResolver;
   let service: PostsService;
 

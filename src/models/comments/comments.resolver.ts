@@ -24,11 +24,13 @@ export class CommentsResolver {
 
   @Mutation(() => Comment)
   createComment(@Args('createCommentInput') args: CreateCommentInput) {
-    const res = this.commentsService.create(args).then((res) => {
-      console.log(res);
-      return res;
-    });
-    return res;
+    return this.commentsService
+      .create(args)
+      .then((res) => {
+        return res;
+      })
+      .then((res) => res)
+      .catch((error) => error);
   }
 
   @Query(() => [Comment], { name: 'comments' })
