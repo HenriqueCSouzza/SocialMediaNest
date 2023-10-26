@@ -30,10 +30,10 @@ describe('UsersResolver', () => {
       id: 1,
       name: createUserInput.name,
       email: createUserInput.email,
-      // isAdmin: true,
-      // createdAt: new Date(),
-      // updatedAt: null,
-      // deletedAt: null,
+      isAdmin: true,
+      createdAt: new Date(),
+      updatedAt: null,
+      deletedAt: null,
     };
 
     jest
@@ -42,6 +42,6 @@ describe('UsersResolver', () => {
 
     const result = await resolver.createUser(createUserInput);
 
-    expect(result).toEqual({ id: 1, ...createUserInput });
+    expect(result).toEqual(mockUserResponse);
   });
 });
