@@ -19,13 +19,17 @@ export class UserOrderByWithRelationInput
   @Field(() => Prisma.SortOrder, { nullable: false })
   id: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
-  createdAt: Prisma.SortOrder;
-  @Field(() => Prisma.SortOrder, { nullable: true })
   name: Prisma.SortOrder;
   @Field(() => StringFilter, { nullable: true })
   email: Prisma.SortOrder;
   @Field(() => BoolFilter, { nullable: true })
   isAdmin: Prisma.SortOrder | Prisma.SortOrderInput;
+  @Field(() => Prisma.SortOrder, { nullable: true })
+  createdAt: Prisma.SortOrder;
+  @Field(() => Prisma.SortOrder, { nullable: true })
+  updatedAt: Prisma.SortOrder;
+  @Field(() => Prisma.SortOrder, { nullable: true })
+  deletedAt: Prisma.SortOrder;
   @Field(() => PostOrderByRelationAggregateInput, { nullable: true })
   posts: PostOrderByRelationAggregateInput;
   @Field(() => CommentOrderByRelationAggregateInput, { nullable: true })

@@ -31,6 +31,9 @@ describe('CommentsResolver', () => {
       text: 'Test comment',
       postId: 1,
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: null,
+      deletedAt: null,
     };
     jest
       .spyOn(service, 'create')
@@ -51,6 +54,9 @@ describe('CommentsResolver', () => {
       text: 'Updated comment',
       postId: 1,
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      deletedAt: null,
     };
 
     jest
@@ -69,6 +75,9 @@ describe('CommentsResolver', () => {
       text: 'Updated comment',
       postId: 1,
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      deletedAt: null,
     };
     jest
       .spyOn(service, 'remove')

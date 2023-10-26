@@ -8,4 +8,7 @@ export class Comment implements RestrictProperties<Comment, CommentType> {
   text: string;
   postId: number;
   userId: number;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
 }

@@ -27,6 +27,12 @@ export class PostOrderByWithRelationInput
   published: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
   authorId: Prisma.SortOrder;
+  @Field(() => Prisma.SortOrder, { nullable: true })
+  createdAt: Prisma.SortOrder;
+  @Field(() => Prisma.SortOrder, { nullable: true })
+  updatedAt: Prisma.SortOrder;
+  @Field(() => Prisma.SortOrder, { nullable: true })
+  deletedAt: Prisma.SortOrder;
   @Field(() => UserOrderByWithRelationInput, { nullable: true })
   author: UserOrderByWithRelationInput;
   @Field(() => PostOrderByRelationAggregateInput, { nullable: true })

@@ -9,4 +9,7 @@ export class Post implements RestrictProperties<Post, PostType> {
   body: string;
   published: boolean;
   authorId: number;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
 }

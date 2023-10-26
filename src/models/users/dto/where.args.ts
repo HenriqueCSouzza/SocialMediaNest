@@ -16,6 +16,8 @@ export class UserWhereInput
 {
   id: number;
   createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
   name: string;
   email: string;
   isAdmin: boolean;

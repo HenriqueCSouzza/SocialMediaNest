@@ -19,6 +19,9 @@ export class PostWhereInput
   body: string;
   published: boolean;
   authorId: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
 
   author: (UserWhereInput | null) | (UserWhereInput | null);
   comments: CommentListRelationFilter | null;

@@ -7,6 +7,8 @@ export class User implements RestrictProperties<User, UserType> {
   email: string;
   isAdmin: boolean;
   id: number;
-  createdAt: Date;
   name: string;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
 }

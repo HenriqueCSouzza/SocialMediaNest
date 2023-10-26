@@ -18,6 +18,9 @@ export class CommentWhereInput
   text: string;
   postId: number;
   userId: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
   user: UserWhereInput | null;
   post: PostWhereInput | null;
 

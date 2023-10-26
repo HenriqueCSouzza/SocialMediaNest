@@ -1,5 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CreateUserInput } from './dto/create-user.input';
 import { UsersResolver } from './users.resolver';
 import { UsersService } from './users.service';
 import { PrismaService } from '../../common/prisma/prisma.service';
@@ -23,22 +22,23 @@ describe('UsersResolver', () => {
 
   it('should create a user', async () => {
     const createUserInput = {
-      id: 1,
       name: 'testuser',
       email: 'testuser@example.com',
-      createdAt: new Date('10/22/2023'),
-      isAdmin: true,
+    };
+
+    const mockUserResponse = {
+      id: 1,
+      name: createUserInput.name,
+      email: createUserInput.email,
+      // isAdmin: true,
+      // createdAt: new Date(),
+      // updatedAt: null,
+      // deletedAt: null,
     };
 
     jest
       .spyOn(service, 'create')
-      .mockImplementation(async (createUserInput: CreateUserInput) => ({
-        id: 1,
-        createdAt: new Date('10/22/2023'),
-        name: createUserInput.name,
-        email: createUserInput.email,
-        isAdmin: true,
-      }));
+      .mockImplementation(async () => mockUserResponse);
 
     const result = await resolver.createUser(createUserInput);
 

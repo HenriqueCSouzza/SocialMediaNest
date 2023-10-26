@@ -33,6 +33,9 @@ describe('PostsResolver', () => {
       body: 'Body test',
       published: true,
       authorId: 1,
+      createdAt: new Date(),
+      updatedAt: null,
+      deletedAt: null,
     };
 
     jest.spyOn(service, 'create').mockImplementation(async () => mockResponse);
@@ -56,6 +59,9 @@ describe('PostsResolver', () => {
       body: 'Updated Body test',
       published: true,
       authorId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      deletedAt: null,
     };
 
     jest
