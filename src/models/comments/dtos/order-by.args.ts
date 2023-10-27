@@ -25,7 +25,7 @@ export class CommentOrderByWithRelationInput
   @Field(() => Prisma.SortOrder, { nullable: true })
   updatedAt: Prisma.SortOrder;
   @Field(() => Prisma.SortOrder, { nullable: true })
-  deletedAt: Prisma.SortOrder;
+  deletedAt: Prisma.SortOrder | Prisma.SortOrderInput;
   @Field(() => PostOrderByWithRelationInput, { nullable: true })
   post: PostOrderByWithRelationInput;
   @Field(() => UserOrderByWithRelationInput, { nullable: true })

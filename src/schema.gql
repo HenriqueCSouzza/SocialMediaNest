@@ -8,10 +8,13 @@ input BoolFilter {
 }
 
 type Comment {
+  createdAt: DateTime!
+  deletedAt: DateTime!
   id: Float!
   post: Post!
   postId: Float!
   text: String!
+  updatedAt: DateTime!
   user: User!
   userId: Float!
 }
@@ -27,18 +30,24 @@ input CommentOrderByRelationAggregateInput {
 }
 
 input CommentOrderByWithRelationInput {
+  createdAt: SortOrder
+  deletedAt: SortOrder
   id: SortOrder
   post: PostOrderByWithRelationInput
   postId: SortOrder
   text: SortOrder
+  updatedAt: SortOrder
   user: UserOrderByWithRelationInput
   userId: SortOrder
 }
 
 enum CommentScalarFieldEnum {
+  createdAt
+  deletedAt
   id
   postId
   text
+  updatedAt
   userId
 }
 
@@ -46,10 +55,13 @@ input CommentWhereInput {
   AND: [CommentWhereInput!]
   NOT: [CommentWhereInput!]
   OR: [CommentWhereInput!]
+  createdAt: DateTime!
+  deletedAt: DateTime!
   id: Float!
   post: PostWhereInput!
   postId: Float!
   text: String!
+  updatedAt: DateTime!
   user: UserWhereInput!
   userId: Float!
 }
@@ -98,9 +110,12 @@ type Post {
   authorId: Float!
   body: String!
   comments: [Comment!]!
+  createdAt: DateTime!
+  deletedAt: DateTime!
   id: Float!
   published: Boolean!
   title: String!
+  updatedAt: DateTime!
 }
 
 input PostListRelationFilter {
@@ -118,17 +133,23 @@ input PostOrderByWithRelationInput {
   authorId: SortOrder
   body: SortOrder
   comments: PostOrderByRelationAggregateInput
+  createdAt: SortOrder
+  deletedAt: SortOrder
   id: SortOrder
   published: SortOrder
   title: SortOrder
+  updatedAt: SortOrder
 }
 
 enum PostScalarFieldEnum {
   authorId
   body
+  createdAt
+  deletedAt
   id
   published
   title
+  updatedAt
 }
 
 input PostWhereInput {
@@ -139,9 +160,12 @@ input PostWhereInput {
   authorId: Float!
   body: String!
   comments: CommentListRelationFilter!
+  createdAt: DateTime!
+  deletedAt: DateTime!
   id: Float!
   published: Boolean!
   title: String!
+  updatedAt: DateTime!
 }
 
 input PostWhereUniqueInput {
@@ -206,29 +230,35 @@ input UpdateUserInput {
 type User {
   comments: [Comment!]!
   createdAt: DateTime!
+  deletedAt: DateTime!
   email: String!
   id: Float!
   isAdmin: Boolean!
   name: String!
   posts: [Post!]!
+  updatedAt: DateTime!
 }
 
 input UserOrderByWithRelationInput {
   comments: CommentOrderByRelationAggregateInput
   createdAt: SortOrder
+  deletedAt: SortOrder
   email: StringFilter
   id: SortOrder!
   isAdmin: BoolFilter
   name: SortOrder
   posts: PostOrderByRelationAggregateInput
+  updatedAt: SortOrder
 }
 
 enum UserScalarFieldEnum {
   createdAt
+  deletedAt
   email
   id
   isAdmin
   name
+  updatedAt
 }
 
 input UserWhereInput {
@@ -236,12 +266,14 @@ input UserWhereInput {
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
   comments: CommentListRelationFilter!
-  createdAt: String!
+  createdAt: DateTime!
+  deletedAt: DateTime!
   email: String!
   id: Float!
   isAdmin: Boolean!
   name: String!
   posts: PostListRelationFilter!
+  updatedAt: DateTime!
 }
 
 input UserWhereUniqueInput {

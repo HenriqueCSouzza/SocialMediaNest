@@ -20,7 +20,7 @@ model User {
     comments Comment[] // One-to-many relation with Comment
     
     createdAt DateTime @default(now())
-    updatedAt DateTime? @updatedAt
+    updatedAt DateTime @default(now()) @updatedAt
  
     deletedAt DateTime?
 }
@@ -36,7 +36,7 @@ model Post {
     comments Comment[]
     
     createdAt DateTime @default(now())
-    updatedAt DateTime? @updatedAt
+    updatedAt DateTime @default(now()) @updatedAt
  
     deletedAt DateTime?
 }
@@ -51,7 +51,7 @@ model Comment {
     user   User   @relation(fields: [userId], references: [id]) // Many-to-one relation with User
 
     createdAt DateTime @default(now())
-    updatedAt DateTime? @updatedAt
+    updatedAt DateTime @default(now()) @updatedAt
  
     deletedAt DateTime?
 }
