@@ -14,15 +14,15 @@ export class UserWhereUniqueInput {
 export class UserWhereInput
   implements RestrictProperties<UserWhereInput, Prisma.UserWhereInput>
 {
-  id: number;
-  name: string;
-  email: string;
-  isAdmin: boolean;
-  posts: PostListRelationFilter;
-  comments: CommentListRelationFilter;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt: Date;
+  id?: number;
+  name?: string;
+  email?: string;
+  isAdmin?: boolean;
+  posts?: PostListRelationFilter;
+  comments?: CommentListRelationFilter;
+  createdAt?: Date;
+  updatedAt?: Date;
+  deletedAt?: Date;
 
   @Field(() => [UserWhereInput], { nullable: true })
   AND: UserWhereInput | UserWhereInput[];

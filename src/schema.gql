@@ -230,7 +230,7 @@ input UpdateUserInput {
 type User {
   comments: [Comment!]!
   createdAt: DateTime!
-  deletedAt: DateTime!
+  deletedAt: DateTime
   email: String!
   id: Float!
   isAdmin: Boolean!
@@ -265,15 +265,15 @@ input UserWhereInput {
   AND: [UserWhereInput!]
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
-  comments: CommentListRelationFilter!
-  createdAt: DateTime!
-  deletedAt: DateTime!
-  email: String!
-  id: Float!
-  isAdmin: Boolean!
-  name: String!
-  posts: PostListRelationFilter!
-  updatedAt: DateTime!
+  comments: CommentListRelationFilter
+  createdAt: DateTime
+  deletedAt: DateTime
+  email: String
+  id: Float
+  isAdmin: Boolean
+  name: String
+  posts: PostListRelationFilter
+  updatedAt: DateTime
 }
 
 input UserWhereUniqueInput {

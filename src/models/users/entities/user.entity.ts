@@ -10,5 +10,5 @@ export class User implements RestrictProperties<User, UserType> {
   name: string;
   createdAt: Date;
   updatedAt: Date;
-  deletedAt: Date;
+  deletedAt?: Date;
 }
