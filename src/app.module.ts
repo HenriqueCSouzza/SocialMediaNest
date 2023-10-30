@@ -15,6 +15,7 @@ import { PostsModule } from './models/posts/posts.module';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      typePaths: ['./**/*.graphql'],
       // playground: false,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,

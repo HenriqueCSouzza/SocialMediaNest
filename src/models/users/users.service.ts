@@ -27,6 +27,15 @@ export class UsersService {
     }
   }
 
+  async list(args: FindManyUserArgs) {
+    const items = await this.prisma.user.findMany(args);
+    const count = await this.prisma.user.count(args);
+    return {
+      items,
+      total: count,
+    };
+  }
+
   async findAll(args: FindManyUserArgs) {
     return await this.prisma.user.findMany(args);
   }

@@ -13,6 +13,15 @@ export class PostsService {
     });
   }
 
+  async list(args: FindManyPostArgs) {
+    const items = await this.prisma.post.findMany(args);
+    const count = await this.prisma.post.count(args);
+    return {
+      items,
+      total: count,
+    };
+  }
+
   async findAll(args: FindManyPostArgs) {
     return await this.prisma.post.findMany(args);
   }

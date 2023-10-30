@@ -178,7 +178,7 @@ type Query {
   post(where: PostWhereUniqueInput): Post!
   posts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByWithRelationInput!], skip: Float, take: Float, where: [PostWhereInput!]): [Post!]!
   user(where: UserWhereUniqueInput): User!
-  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Float, take: Float, where: UserWhereInput): UserList!
 }
 
 enum QueryMode {
@@ -237,6 +237,11 @@ type User {
   name: String!
   posts: [Post!]!
   updatedAt: DateTime!
+}
+
+type UserList {
+  items: [User!]!
+  total: Float!
 }
 
 input UserOrderByWithRelationInput {

@@ -14,6 +14,7 @@ import { UpdateUserInput } from './dto/update-user.input';
 import { PrismaService } from '../../common/prisma/prisma.service';
 import { Post } from '../posts/entity/post.entity';
 import { Comment } from '../comments/entity/comment.entity';
+import { UserList } from './dto/list-user.input';
 
 @Resolver(() => User)
 export class UsersResolver {
@@ -27,9 +28,9 @@ export class UsersResolver {
     return await this.usersService.create(args);
   }
 
-  @Query(() => [User], { name: 'users' })
+  @Query(() => UserList, { name: 'users' })
   async findAll(@Args() args: FindManyUserArgs) {
-    return await this.usersService.findAll(args);
+    return await this.usersService.list(args);
   }
 
   @Query(() => User, { name: 'user' })
